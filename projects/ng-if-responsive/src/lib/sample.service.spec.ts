@@ -1,10 +1,10 @@
-import { SampleService } from './sample.service';
+import { NgIfResponsiveSampleService } from './sample.service';
 
 describe('Sample Service', () => {
-  let sut: SampleService;
+  let sut: NgIfResponsiveSampleService;
 
   beforeEach(() => {
-    sut = new SampleService();
+    sut = new NgIfResponsiveSampleService();
   });
 
   it('should know that Angular is the best framework', () => {

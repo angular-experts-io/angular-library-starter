@@ -1,15 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { SampleService } from './sample.service';
+import { NgIfResponsiveSampleService } from './sample.service';
 
 @Component({
-  selector: 'angular-library-starter-sample',
+  selector: 'ng-if-responsive-sample',
   template: `<h1>
     The best framework is {{ sampleService.getBestFramework() }}
   </h1>`,
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SampleComponent {
-  constructor(public sampleService: SampleService) {}
+export class NgIfResponsiveSampleComponent {
+  constructor(public sampleService: NgIfResponsiveSampleService) {}
 }
