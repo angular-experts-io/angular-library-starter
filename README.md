@@ -1,86 +1,79 @@
-# ngIfResponsive
+# Angular library starter - WIP
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-![!Codecov](https://img.shields.io/codecov/c/github/kreuzerk/ng-if-responsive)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-> A simple project that provides helpers to render or remove elements from the DOM based on screen size. Its like `ngIf`, just responsive.
+> Build epic Angular libraries in no time! Stop loosing time over the library setup and focus on the library logic!
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Demo](#demo)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Import](#import)
-  - [Usage in HTML](#usage-in-html)
-    - [Pixel breakpoint](#pixel-breakpoint)
-    - [Configuration usage](#configuration-usage)
+- [What's included](#whats-included)
+- [Which technologies are included](#which-technologies-are-included)
+- [How to use this starter](#how-to-use-this-starter)
+  - [Use the template](#use-the-template)
+  - [Customization](#customization)
 - [Contributors ✨](#contributors-)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Demo
+## What's included
 
-Checkout a running demo application at https://kreuzerk.github.io/ng-if-responsive/.
+The library starter contains state of the art technologies and best practices when it comes to delivering Angular libraries. Here are some of the included core features.
 
-## Installation
+- Library setup
+- Showcase setup
+- Lint setup
+- Testing Setup
+- Test Coverage reporting
+- Commit linting (Conventional commits enforcement)
+- Fully automated releases to NPM based on commit messages
+- Automatic showcase deployments to GitHub Pages
+- Automated  contributors credit
+- Code of conduct
+- Automated Changelog generation
+- Automated version bump in GitHub
+- Automated creation of Tags in GitHub
+- Automated creation of releases with release notes in GitHub
+- Code preview in the showcase
 
-To install this project run the following command in a terminal of your choice.
+
+
+## Which technologies are included
+
+- Angular (15)
+- Jest
+- Esllint
+- Husky
+- Commitlint
+- Lint staged
+- Semantic release
+- ngx-highlight
+- Tailwind (for the showcase)
+
+
+
+## How to use this starter
+
+### Use the template
+
+To use this starter you have to click on the `Use Template`.  Once you have the template, clone it, and run the following commands.
 
 ```bash
-npm install ng-if-responsive
+npm ci
 ```
 
-## Usage
 
-The project currently provides two directives. A `ngIfResponsiveRender` and a `ngIfResponsiveRemove` directive. As the name indicates the remove directive is used to remove some elements on certain screen sizes and the render directive is used to render elements on certain screen sizes.
 
-### Import
+### Customization
 
-Both directives are exported as standalone components and can therefore be added to the `imports` array in your module or standalone component.
+Once you cloned the template you can run the fllowing command to customise it.
 
-```typescript
-imports: [NgIfResponsiveRemoveDirective, NgIfResponsiveRenderDirective];
-```
-
-### Usage in HTML
-
-Both directives can be applied as attribute directives on any given DOM element. Each directive accepts the breakpoint as input. When using the directive there are two options, you can either pass in the width of the screen size in Pixel as a number or you can use a custom key as breakpoint identifier (this has to be configured, via Injection token, see below)
-
-#### Pixel breakpoint
-
-To use a picel as breakpoint you can use the directive in the following way:
-
-```html
-<h3 *ngIfResponsiveRemove="640">Hide on screens bigger than sm</h3>
-```
-
-#### Configuration usage
-
-If you want to use customized breakpoint identifiers you can define them via the ``RESPONSIVE_NG_IF_CONFIG` injection token. A example configuration inside your `AppModule` or `AppComponent` could look like this.
-
-```typescript
-providers: [
-  {
-    provide: RESPONSIVE_NG_IF_CONFIG,
-    useValue: {
-      sm: 640,
-      md: 769,
-      lg: 1024,
-      xl: 1080,
-    },
-  },
-];
-```
-
-Based on the configuration you can then go ahead and pass one of the keys (`sm`, `md`, `lg`, `xl`) to the directive.
-
-```html
-<h3 *ngIfResponsiveRemove="'sm'">Hide on screens bigger than sm</h3>
+```bash
+npm run customize
 ```
 
 ## Contributors ✨
