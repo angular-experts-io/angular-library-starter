@@ -50,6 +50,7 @@ async function promptNewLibraryName() {
                 if (!value) {
                     console.error('Please provide a library name')
                 }
+                return true;
             }
         }
     ]);
@@ -60,8 +61,8 @@ function renameDirectories(libraryName) {
     const spinner = generateSpinner('Rename directories');
     try {
         spinner.start();
-        renameSync(`./projects/${LIBRARY_NAME}`, `./projects/${libraryName}`);
-        renameSync(`./projects/${LIBRARY_NAME}-showcase`, `./projects/${libraryName}-showcase`);
+        renameSync(`./projects/${LIBRARY_NAME}`, `./projects/${kebabcase(libraryName)}`);
+        renameSync(`./projects/${LIBRARY_NAME}-showcase`, `./projects/${kebabcase(libraryName)}-showcase`);
         spinner.stop();
     } catch (error) {
         spinner.fail('Oh no, an error occurred while renaming the library or the showcase directories')
