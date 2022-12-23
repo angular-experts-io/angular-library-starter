@@ -3,7 +3,7 @@ import kebabcase from 'lodash.kebabcase';
 import camelcase from 'lodash.camelcase';
 import {execSync} from 'child_process';
 import inquirer from 'inquirer';
-import {renameSync} from 'fs';
+import {renameSync, writeFileSync} from 'fs';
 import ora from 'ora';
 
 const LIBRARY_NAME = 'angular-library-starter';
@@ -31,9 +31,26 @@ async function customize() {
          -'                                '-
          Angular library starter customization wizard
     `)
-    const {libraryName, cleanupNpmPackages} = await promptInputs();
-    // replaceAndRename(libraryName);
+    const {libraryName, cleanupNpmPackages, cleanupReadme} = await promptInputs();
+    replaceAndRename(libraryName);
+    replaceReadmeContent(cleanupReadme, libraryName);
     replaceNpmPackages(cleanupNpmPackages);
+}
+
+function replaceReadmeContent(cleanupReadme, libraryName){
+    if(!cleanupReadme){
+        return;
+    }
+    const spinner = generateSpinner('Replacing README content');
+
+    try {
+        spinner.start();
+        writeFileSync('README.md', `# ${kebabcase(libraryName)}`)
+        spinner.succeed('Successfully replaced README content');
+    } catch (error) {
+        spinner.fail('Oh no, an error occurred while replacing the README content')
+        console.error(error);
+    }
 }
 
 function replaceNpmPackages(replace) {
@@ -74,6 +91,11 @@ async function promptInputs() {
             name: 'cleanupNpmPackages',
             type: 'confirm',
             message: 'Do you want to uninstall the packages used for customization?'
+        },
+        {
+            name: 'cleanupReadme',
+            type: 'confirm',
+            message: 'Do you want to cleanup the README?'
         }
     ]);
     return answers;
