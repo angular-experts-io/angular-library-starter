@@ -3,7 +3,7 @@ import kebabcase from 'lodash.kebabcase';
 import camelcase from 'lodash.camelcase';
 import {execSync} from 'child_process';
 import inquirer from 'inquirer';
-import chalk from 'chalk ';
+import chalk from 'chalk';
 import {renameSync, writeFileSync} from 'fs';
 import ora from 'ora';
 
