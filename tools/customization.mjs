@@ -49,8 +49,19 @@ function replaceNpmPackages(replace) {
         return;
     }
 
+    const spinner = generateSpinner('Removing customization dependencies');
+    spinner.start();
+    let allSucceeded = true;
+
     CUSTOMIZATION_DEPS.forEach(dep => exec(`npm uninstall ${dep}`,
-        err => console.error(`An error occured while uninstalling ${dep}`)))
+        err => {
+            spinner.fail(`An error occured while uninstalling ${dep}`);
+            allSucceeded = false;
+        }))
+
+    if(allSucceeded){
+        spinner.succeed('All customization dependencies have been successfully removed');
+    }
 }
 
 function replaceAndRename(libraryName) {
@@ -87,7 +98,7 @@ function renameDirectories(libraryName) {
         spinner.start();
         renameSync(`./projects/${LIBRARY_NAME}`, `./projects/${kebabcase(libraryName)}`);
         renameSync(`./projects/${LIBRARY_NAME}-showcase`, `./projects/${kebabcase(libraryName)}-showcase`);
-        spinner.stop();
+        spinner.succeed('Directories successfully renamed');
     } catch (error) {
         spinner.fail('Oh no, an error occurred while renaming the library or the showcase directories')
         console.error(error);
@@ -108,7 +119,7 @@ function renameKebabCases(libraryName) {
     try {
         spinner.start();
         replaceInFile.sync(replaceOptions);
-        spinner.stop();
+        spinner.succeed('Successfully replaced configs, import paths, selectors, HTML component usage');
     } catch (error) {
         spinner.fail('Oh no, an error occurred while replacing configs, import paths, selectors, HTML component usage')
         console.error(error);
@@ -138,7 +149,7 @@ function renameCamelCases(libraryName) {
         spinner.start();
         replaceInFile.sync(replaceOptions);
         replaceInFile.sync(capsReplaceOptions);
-        spinner.stop();
+        spinner.succeed('Successfully replaced class names, configs, styles');
     } catch (error) {
         spinner.fail('Oh no, an error occurred while replacing class names, configs, styles')
         console.error(error);
