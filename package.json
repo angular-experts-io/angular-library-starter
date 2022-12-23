@@ -15,6 +15,7 @@
     "commitlint": "commitlint --edit",
     "watch:library": "jest --config projects/ng-if-responsive/jest.config.js --watch",
     "test:library": "jest --config projects/ng-if-responsive/jest.config.js",
+    "test:showcase": "jest --config projects/ng-if-responsive-showcase/jest.config.js",
     "coverage:library": "jest --config projects/ng-if-responsive/jest.config.js --coverage --coverageDirectory=../../.coverage",
     "format:test": "prettier --list-different 'projects/**/*.{ts,html}'",
     "format:write": "prettier --write 'projects/**/*.{ts,html}'",
