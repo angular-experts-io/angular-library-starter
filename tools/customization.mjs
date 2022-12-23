@@ -1,20 +1,12 @@
 import replaceInFile from 'replace-in-file';
 import kebabcase from 'lodash.kebabcase';
 import camelcase from 'lodash.camelcase';
-import {exec} from 'child_process';
+import {execSync} from 'child_process';
 import inquirer from 'inquirer';
 import {renameSync} from 'fs';
 import ora from 'ora';
 
 const LIBRARY_NAME = 'angular-library-starter';
-
-const CUSTOMIZATION_DEPS = [
-    'inquirer',
-    'replace-in-file',
-    'lodash.camelcase',
-    'lodash.kebabcase',
-    'ora'
-]
 
 async function customize() {
     console.log(`
@@ -40,7 +32,7 @@ async function customize() {
          Angular library starter customization wizard
     `)
     const {libraryName, cleanupNpmPackages} = await promptInputs();
-    replaceAndRename(libraryName);
+    // replaceAndRename(libraryName);
     replaceNpmPackages(cleanupNpmPackages);
 }
 
@@ -48,19 +40,14 @@ function replaceNpmPackages(replace) {
     if (!replace) {
         return;
     }
-
     const spinner = generateSpinner('Removing customization dependencies');
-    spinner.start();
-    let allSucceeded = true;
 
-    CUSTOMIZATION_DEPS.forEach(dep => exec(`npm uninstall ${dep}`,
-        err => {
-            spinner.fail(`An error occured while uninstalling ${dep}`);
-            allSucceeded = false;
-        }))
-
-    if(allSucceeded){
-        spinner.succeed('All customization dependencies have been successfully removed');
+    try {
+        spinner.start();
+        execSync('npm uninstall replace-in-file inquirer ora lodash.camelcase lodash.kebabcase');
+        spinner.succeed('Customization dependencies successfully removed');
+    } catch (error) {
+        spinner.fail('Uninstalling custom dependencies failed');
     }
 }
 
