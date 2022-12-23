@@ -3,6 +3,7 @@ import kebabcase from 'lodash.kebabcase';
 import camelcase from 'lodash.camelcase';
 import {execSync} from 'child_process';
 import inquirer from 'inquirer';
+import chalk from 'chalk ';
 import {renameSync, writeFileSync} from 'fs';
 import ora from 'ora';
 
@@ -37,8 +38,8 @@ async function customize() {
     replaceNpmPackages(cleanupNpmPackages);
 }
 
-function replaceReadmeContent(cleanupReadme, libraryName){
-    if(!cleanupReadme){
+function replaceReadmeContent(cleanupReadme, libraryName) {
+    if (!cleanupReadme) {
         return;
     }
     const spinner = generateSpinner('Replacing README content');
@@ -61,7 +62,7 @@ function replaceNpmPackages(replace) {
 
     try {
         spinner.start();
-        execSync('npm uninstall replace-in-file inquirer ora lodash.camelcase lodash.kebabcase');
+        execSync('npm uninstall replace-in-file inquirer ora lodash.camelcase lodash.kebabcase chalk');
         spinner.succeed('Customization dependencies successfully removed');
     } catch (error) {
         spinner.fail('Uninstalling custom dependencies failed');
@@ -176,5 +177,9 @@ function generateSpinner(text) {
 }
 
 customize()
-    .then(() => console.log('Library customization successfully'))
-    .catch(error => console.log('Library customization failed', error));
+    .then(() => console.log(
+        chalk.green('Library customization successfully')
+    ))
+    .catch(error => console.log(
+        chalk.red('Library customization failed', error)
+    ));
