@@ -1,11 +1,20 @@
 import replaceInFile from 'replace-in-file';
 import kebabcase from 'lodash.kebabcase';
 import camelcase from 'lodash.camelcase';
+import {exec} from 'child_process';
 import inquirer from 'inquirer';
 import {renameSync} from 'fs';
 import ora from 'ora';
 
 const LIBRARY_NAME = 'angular-library-starter';
+
+const CUSTOMIZATION_DEPS = [
+    'inquirer',
+    'replace-in-file',
+    'lodash.camelcase',
+    'lodash.kebabcase',
+    'ora'
+]
 
 async function customize() {
     console.log(`
@@ -30,8 +39,18 @@ async function customize() {
          -'                                '-
          Angular library starter customization wizard
     `)
-    const libraryName = await promptNewLibraryName();
+    const {libraryName, cleanupNpmPackages} = await promptInputs();
     replaceAndRename(libraryName);
+    replaceNpmPackages(cleanupNpmPackages);
+}
+
+function replaceNpmPackages(replace) {
+    if (!replace) {
+        return;
+    }
+
+    CUSTOMIZATION_DEPS.forEach(dep => exec(`npm uninstall ${dep}`,
+        err => console.error(`An error occured while uninstalling ${dep}`)))
 }
 
 function replaceAndRename(libraryName) {
@@ -40,7 +59,7 @@ function replaceAndRename(libraryName) {
     renameCamelCases(libraryName);
 }
 
-async function promptNewLibraryName() {
+async function promptInputs() {
     const answers = await inquirer.prompt([
         {
             name: 'libraryName',
@@ -52,9 +71,14 @@ async function promptNewLibraryName() {
                 }
                 return true;
             }
+        },
+        {
+            name: 'cleanupNpmPackages',
+            type: 'confirm',
+            message: 'Do you want to uninstall the packages used for customization?'
         }
     ]);
-    return answers.libraryName;
+    return answers;
 }
 
 function renameDirectories(libraryName) {
@@ -121,7 +145,7 @@ function renameCamelCases(libraryName) {
     }
 }
 
-function capitalize(value){
+function capitalize(value) {
     return value.charAt(0).toUpperCase() + value.substring(1);
 }
 
