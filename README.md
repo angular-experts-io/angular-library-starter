@@ -16,6 +16,7 @@
 - [How to use this starter](#how-to-use-this-starter)
   - [Use the template](#use-the-template)
   - [Customization](#customization)
+- [Use fully automated releases](#use-fully-automated-releases)
 - [Contributors ✨](#contributors-)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -32,15 +33,13 @@ The library starter contains state of the art technologies and best practices wh
 - Commit linting (Conventional commits enforcement)
 - Fully automated releases to NPM based on commit messages
 - Automatic showcase deployments to GitHub Pages
-- Automated  contributors credit
+- Automated contributors credit
 - Code of conduct
 - Automated Changelog generation
 - Automated version bump in GitHub
 - Automated creation of Tags in GitHub
 - Automated creation of releases with release notes in GitHub
 - Code preview in the showcase
-
-
 
 ## Which technologies are included
 
@@ -54,19 +53,15 @@ The library starter contains state of the art technologies and best practices wh
 - ngx-highlight
 - Tailwind (for the showcase)
 
-
-
 ## How to use this starter
 
 ### Use the template
 
-To use this starter you have to click on the `Use Template`.  Once you have the template, clone it, and run the following commands.
+To use this starter you have to click on the `Use Template`. Once you have the template, clone it, and run the following commands.
 
 ```bash
 npm ci
 ```
-
-
 
 ### Customization
 
@@ -75,6 +70,13 @@ Once you cloned the template you can run the fllowing command to customise it.
 ```bash
 npm run customize
 ```
+
+## Use fully automated releases
+
+In order to make fully automated releases work you have to add two tokens as repository secrets.
+
+- `GH_TOKEN`
+- `NPM_TOKEN`
 
 ## Contributors ✨
 
