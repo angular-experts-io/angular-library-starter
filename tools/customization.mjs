@@ -5,7 +5,7 @@ import inquirer from 'inquirer';
 import {renameSync} from 'fs';
 import ora from 'ora';
 
-const LIBRARY_NAME = 'ng-if-responsive';
+const LIBRARY_NAME = 'angular-library-starter';
 
 async function customize() {
     console.log(`
