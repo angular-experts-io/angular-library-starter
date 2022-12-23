@@ -103,7 +103,7 @@ function renameCamelCases(libraryName) {
 
     try {
         spinner.start();
-        // replaceInFile.sync(replaceOptions);
+        replaceInFile.sync(replaceOptions);
         spinner.stop();
     } catch (error) {
         spinner.fail('Oh no, an error occurred while replacing class names, configs, styles')
