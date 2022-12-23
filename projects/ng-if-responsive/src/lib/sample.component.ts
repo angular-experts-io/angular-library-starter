@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { SampleService } from "./sample.service";
+import { SampleService } from './sample.service';
 
 @Component({
-  selector: "angular-library-starter-sample",
+  selector: 'angular-library-starter-sample',
   template: `<h1>
     The best framework is {{ sampleService.getBestFramework() }}
   </h1>`,

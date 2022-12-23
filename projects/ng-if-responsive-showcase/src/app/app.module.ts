@@ -1,10 +1,10 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { HIGHLIGHT_OPTIONS, HighlightModule } from "ngx-highlightjs";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 
-import { SampleComponent } from "../../../ng-if-responsive/src/lib/sample.component";
+import { SampleComponent } from '../../../ng-if-responsive/src/lib/sample.component';
 
-import { AppComponent } from "./app.component";
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,7 +13,7 @@ import { AppComponent } from "./app.component";
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
-        fullLibraryLoader: async () => await import("highlight.js"),
+        fullLibraryLoader: async () => await import('highlight.js'),
       },
     },
   ],
