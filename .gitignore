@@ -15,7 +15,6 @@ yarn-error.log
 .idea/
 .project
 .classpath
-.DS_Store
 .c9/
 *.launch
 .settings/
