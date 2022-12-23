@@ -1,5 +1,5 @@
 {
-  "name": "ng-if-responsive",
+  "name": "angular-library-starter",
   "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^15.0.4",

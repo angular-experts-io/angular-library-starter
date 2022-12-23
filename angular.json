@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngIfResponsive": {
+    "angularLibraryStarter": {
       "projectType": "library",
-      "root": "projects/ng-if-responsive",
-      "sourceRoot": "projects/ng-if-responsive/src",
+      "root": "projects/angular-library-starter",
+      "sourceRoot": "projects/angular-library-starter/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ng-if-responsive/ng-package.json"
+            "project": "projects/angular-library-starter/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ng-if-responsive/tsconfig.lib.prod.json"
+              "tsConfig": "projects/angular-library-starter/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ng-if-responsive/tsconfig.lib.json"
+              "tsConfig": "projects/angular-library-starter/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,37 +27,37 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "tsConfig": "projects/ng-if-responsive/tsconfig.spec.json"
+            "tsConfig": "projects/angular-library-starter/tsconfig.spec.json"
           }
         }
       }
     },
-    "ngIfResponsiveShowcase": {
+    "angularLibraryStarterShowcase": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "projects/ng-if-responsive-showcase",
-      "sourceRoot": "projects/ng-if-responsive-showcase/src",
+      "root": "projects/angular-library-starter-showcase",
+      "sourceRoot": "projects/angular-library-starter-showcase/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-if-responsive-showcase",
-            "index": "projects/ng-if-responsive-showcase/src/index.html",
-            "main": "projects/ng-if-responsive-showcase/src/main.ts",
-            "polyfills": "projects/ng-if-responsive-showcase/src/polyfills.ts",
-            "tsConfig": "projects/ng-if-responsive-showcase/tsconfig.app.json",
+            "outputPath": "dist/angular-library-starter-showcase",
+            "index": "projects/angular-library-starter-showcase/src/index.html",
+            "main": "projects/angular-library-starter-showcase/src/main.ts",
+            "polyfills": "projects/angular-library-starter-showcase/src/polyfills.ts",
+            "tsConfig": "projects/angular-library-starter-showcase/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/ng-if-responsive-showcase/src/favicon.ico",
-              "projects/ng-if-responsive-showcase/src/assets"
+              "projects/angular-library-starter-showcase/src/favicon.ico",
+              "projects/angular-library-starter-showcase/src/assets"
             ],
             "styles": [
-              "projects/ng-if-responsive-showcase/src/styles.scss"
+              "projects/angular-library-starter-showcase/src/styles.scss"
             ],
             "scripts": []
           },
@@ -77,8 +77,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "projects/ng-if-responsive-showcase/src/environments/environment.ts",
-                  "with": "projects/ng-if-responsive-showcase/src/environments/environment.prod.ts"
+                  "replace": "projects/angular-library-starter-showcase/src/environments/environment.ts",
+                  "with": "projects/angular-library-starter-showcase/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -98,10 +98,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ngIfResponsiveShowcase:build:production"
+              "browserTarget": "angularLibraryStarterShowcase:build:production"
             },
             "development": {
-              "browserTarget": "ngIfResponsiveShowcase:build:development"
+              "browserTarget": "angularLibraryStarterShowcase:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -109,19 +109,19 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngIfResponsiveShowcase:build"
+            "browserTarget": "angularLibraryStarterShowcase:build"
           }
         },
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "tsConfig": "projects/ng-if-responsive-showcase/tsconfig.spec.json",
+            "tsConfig": "projects/angular-library-starter-showcase/tsconfig.spec.json",
             "assets": [
-              "projects/ng-if-responsive-showcase/src/favicon.ico",
-              "projects/ng-if-responsive-showcase/src/assets"
+              "projects/angular-library-starter-showcase/src/favicon.ico",
+              "projects/angular-library-starter-showcase/src/assets"
             ],
             "styles": [
-              "projects/ng-if-responsive-showcase/src/styles.scss"
+              "projects/angular-library-starter-showcase/src/styles.scss"
             ],
             "scripts": []
           }
