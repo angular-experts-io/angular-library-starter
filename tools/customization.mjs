@@ -81,9 +81,17 @@ function renameKebabCases(libraryName) {
         to: kebabcase(libraryName)
     }
 
+    const replaceTopLevelConfigOptions = {
+        ignore: 'node_modules/**/*',
+        files: '*.{ts,html,json,scss,js}',
+        from: new RegExp(LIBRARY_NAME),
+        to: kebabcase(libraryName)
+    }
+
     try {
         spinner.start();
         replaceInFile.sync(replaceOptions);
+        replaceInFile.sync(replaceTopLevelConfigOptions);
         spinner.stop();
     } catch (error) {
         spinner.fail('Oh no, an error occurred while replacing configs, import paths, selectors, HTML component usage')
