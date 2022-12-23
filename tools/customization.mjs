@@ -101,10 +101,12 @@ function renameCamelCases(libraryName) {
         to: camelcase(libraryName)
     }
 
+    console.log('caps and capitalized', capitalize(camelcase(LIBRARY_NAME)));
+
     const capsReplaceOptions = {
         ignore: 'node_modules/**/*',
         files: '**/*.{ts,html,json,scss,js}',
-        from: new RegExp(capitalize(camelcase(LIBRARY_NAME), 'g')),
+        from: new RegExp(capitalize(camelcase(LIBRARY_NAME)), 'g'),
         to: capitalize(camelcase(libraryName))
     }
 
