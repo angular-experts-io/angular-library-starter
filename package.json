@@ -9,6 +9,7 @@
     "build:showcase": "ng build --project=ngIfResponsiveShowcase --base-href ./",
     "bump-version": "rjp package.json version $VERSION",
     "copy-readme": "copyfiles README.md dist/ng-if-responsive",
+    "customize": "node tools/customization.mjs",
     "lint": "eslint projects/**/*.ts",
     "lint-staged": "lint-staged --allow-empty",
     "commitlint": "commitlint --edit",
