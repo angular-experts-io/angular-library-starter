@@ -1,0 +1,89 @@
+{
+  "name": "ng-if-responsive",
+  "version": "1.0.2",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve -o",
+    "build": "npm run build:library && npm run build:showcase",
+    "build:library": "ng build --project=ngIfResponsive && npm run copy-readme",
+    "build:showcase": "ng build --project=ngIfResponsiveShowcase --base-href ./",
+    "bump-version": "rjp package.json version $VERSION",
+    "copy-readme": "copyfiles README.md dist/ng-if-responsive",
+    "lint": "eslint projects/**/*.ts",
+    "lint-staged": "lint-staged --allow-empty",
+    "commitlint": "commitlint --edit",
+    "watch:library": "jest --config projects/ng-if-responsive/jest.config.js --watch",
+    "test:library": "jest --config projects/ng-if-responsive/jest.config.js",
+    "coverage:library": "jest --config projects/ng-if-responsive/jest.config.js --coverage --coverageDirectory=../../.coverage",
+    "format:test": "prettier --list-different 'projects/**/*.{ts,html}'",
+    "format:write": "prettier --write 'projects/**/*.{ts,html}'",
+    "prepare": "husky install"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^15.0.4",
+    "@angular/cdk": "^15.0.3",
+    "@angular/common": "^15.0.4",
+    "@angular/compiler": "^15.0.4",
+    "@angular/core": "^15.0.4",
+    "@angular/forms": "^15.0.4",
+    "@angular/platform-browser": "^15.0.4",
+    "@angular/platform-browser-dynamic": "^15.0.4",
+    "@angular/router": "^15.0.4",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^15.0.4",
+    "@angular-eslint/builder": "15.1.0",
+    "@angular-eslint/eslint-plugin": "15.1.0",
+    "@angular-eslint/eslint-plugin-template": "15.1.0",
+    "@angular-eslint/schematics": "15.1.0",
+    "@angular-eslint/template-parser": "15.1.0",
+    "@angular/cli": "~15.0.4",
+    "@angular/compiler-cli": "^15.0.4",
+    "@briebug/jest-schematic": "^5.0.0",
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@semantic-release/changelog": "^6.0.2",
+    "@semantic-release/exec": "^6.0.3",
+    "@types/jest": "29.2.4",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "5.44.0",
+    "autoprefixer": "^10.4.13",
+    "copyfiles": "^2.4.1",
+    "eslint": "^8.30.0",
+    "eslint-config-standard-with-typescript": "^24.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "husky": "^8.0.2",
+    "jest": "28.1.3",
+    "jest-preset-angular": "^12.2.3",
+    "lint-staged": "^13.1.0",
+    "ng-packagr": "^15.0.3",
+    "ngx-highlightjs": "^7.0.1",
+    "postcss": "^8.4.20",
+    "prettier": "^2.8.1",
+    "replace-json-property": "^1.8.0",
+    "semantic-release": "^19.0.5",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.8.4"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "body-max-line-length": [
+        1,
+        "always",
+        100
+      ]
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,html,css,scss,less,md,json}": "prettier --write"
+  }
+}

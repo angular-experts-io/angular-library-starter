@@ -1,0 +1,132 @@
+<nav class="bg-blue-900 h-16 pl-5 flex items-center">
+  <div class="flex items-baseline">
+    <h1 class="text-3xl text-white">ngIfResponsive</h1>
+    <h2 class="text-lg text-white pl-2">Showcase</h2>
+  </div>
+</nav>
+
+<div class="container mx-auto p-10">
+  <blockquote class="text-3xl">
+    "A simple project that provides helpers to render or remove elements from
+    the DOM based on screen size."
+  </blockquote>
+
+  <p class="py-5">
+    Change the screenSize to see how elements are rendered remove from the DOM
+    based on screen size.
+  </p>
+
+  <h2 class="text-3xl pb-5">Usage with configuration numbers</h2>
+
+  <div class="shadow-lg border-1 p-5 rounded-xl">
+    <h2 class="text-xl py-5">
+      Remove elements from DOM once the specified screen size is met
+    </h2>
+    <span class="text-xl bg-slate-200 rounded-xl p-2">Code</span>
+    <pre
+      class="p-5 rounded-xl border border-slate-500 my-5"
+    ><code [highlight]="numberConfigRemove"></code></pre>
+
+    <span class="text-xl bg-slate-200 rounded-xl p-2">Running app</span>
+
+    <div class="mt-5">
+      <h3 class="text-2xl" *ngIfResponsiveRemove="640">
+        Hide on screens bigger than sm
+      </h3>
+      <h3 class="text-2xl" *ngIfResponsiveRemove="769">
+        Hide on screens bigger than md
+      </h3>
+      <h3 class="text-2xl" *ngIfResponsiveRemove="1024">
+        Hide on screens bigger than lg
+      </h3>
+      <h3 class="text-2xl" *ngIfResponsiveRemove="1280">
+        Hide on screens bigger than xl
+      </h3>
+    </div>
+  </div>
+
+  <div class="shadow-lg border-1 p-5 rounded-xl my-10">
+    <h2 class="text-xl py-5">
+      Render elements once the specified screen size is met
+    </h2>
+    <span class="text-xl bg-slate-200 rounded-xl p-2">Code</span>
+    <pre
+      class="p-5 rounded-xl border border-slate-500 my-5"
+    ><code [highlight]="numberConfigRender"></code></pre>
+
+    <span class="text-xl bg-slate-200 rounded-xl p-2">Running app</span>
+
+    <div class="mt-5">
+      <h3 class="text-2xl" *ngIfResponsiveRender="640">
+        Render on sm and bigger
+      </h3>
+      <h3 class="text-2xl" *ngIfResponsiveRender="769">
+        Render on md and bigger
+      </h3>
+      <h3 class="text-2xl" *ngIfResponsiveRender="1024">
+        Render on lg and bigger
+      </h3>
+      <h3 class="text-2xl" *ngIfResponsiveRender="1280">
+        Render on xl and bigger
+      </h3>
+    </div>
+  </div>
+
+  <h2 class="text-3xl">Usage with configuration object</h2>
+
+  <div class="shadow-lg border-1 p-5 rounded-xl my-10">
+    <pre
+      class="p-5 rounded-xl border border-slate-500 my-5"
+    ><code [highlight]="configSetup"></code></pre>
+  </div>
+
+  <div class="shadow-lg border-1 p-5 rounded-xl my-10">
+    <h2 class="text-xl py-5">
+      Remove elements from DOM once the specified screen size is met
+    </h2>
+    <span class="text-xl bg-slate-200 rounded-xl p-2">Code</span>
+    <pre
+      class="p-5 rounded-xl border border-slate-500 my-5"
+    ><code [highlight]="configRemove"></code></pre>
+
+    <div class="mt-5">
+      <h3 class="text-2xl" *ngIfResponsiveRemove="'sm'">
+        Hide on screens bigger than sm
+      </h3>
+      <h3 class="text-2xl" *ngIfResponsiveRemove="'md'">
+        Hide on screens bigger than md
+      </h3>
+      <h3 class="text-2xl" *ngIfResponsiveRemove="'lg'">
+        Hide on screens bigger than lg
+      </h3>
+      <h3 class="text-2xl" *ngIfResponsiveRemove="'xl'">
+        Hide on screens bigger than xl
+      </h3>
+    </div>
+  </div>
+
+  <div class="shadow-lg border-1 p-5 rounded-xl my-10">
+    <h2 class="text-xl py-5">
+      Render elements once the specified screen size is met
+    </h2>
+    <span class="text-xl bg-slate-200 rounded-xl p-2">Code</span>
+    <pre
+      class="p-5 rounded-xl border border-slate-500 my-5"
+    ><code [highlight]="configRender"></code></pre>
+
+    <div class="mt-5">
+      <h3 class="text-2xl" *ngIfResponsiveRender="'sm'">
+        Render on sm and bigger
+      </h3>
+      <h3 class="text-2xl" *ngIfResponsiveRender="'md'">
+        Render on md and bigger
+      </h3>
+      <h3 class="text-2xl" *ngIfResponsiveRender="'lg'">
+        Render on lg and bigger
+      </h3>
+      <h3 class="text-2xl" *ngIfResponsiveRender="'xl'">
+        Render on xl and bigger
+      </h3>
+    </div>
+  </div>
+</div>

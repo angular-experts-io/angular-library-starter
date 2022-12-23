@@ -1,0 +1,135 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngIfResponsive": {
+      "projectType": "library",
+      "root": "projects/ng-if-responsive",
+      "sourceRoot": "projects/ng-if-responsive/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-if-responsive/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-if-responsive/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-if-responsive/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "tsConfig": "projects/ng-if-responsive/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "ngIfResponsiveShowcase": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ng-if-responsive-showcase",
+      "sourceRoot": "projects/ng-if-responsive-showcase/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ng-if-responsive-showcase",
+            "index": "projects/ng-if-responsive-showcase/src/index.html",
+            "main": "projects/ng-if-responsive-showcase/src/main.ts",
+            "polyfills": "projects/ng-if-responsive-showcase/src/polyfills.ts",
+            "tsConfig": "projects/ng-if-responsive-showcase/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/ng-if-responsive-showcase/src/favicon.ico",
+              "projects/ng-if-responsive-showcase/src/assets"
+            ],
+            "styles": [
+              "projects/ng-if-responsive-showcase/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/ng-if-responsive-showcase/src/environments/environment.ts",
+                  "with": "projects/ng-if-responsive-showcase/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ngIfResponsiveShowcase:build:production"
+            },
+            "development": {
+              "browserTarget": "ngIfResponsiveShowcase:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngIfResponsiveShowcase:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "tsConfig": "projects/ng-if-responsive-showcase/tsconfig.spec.json",
+            "assets": [
+              "projects/ng-if-responsive-showcase/src/favicon.ico",
+              "projects/ng-if-responsive-showcase/src/assets"
+            ],
+            "styles": [
+              "projects/ng-if-responsive-showcase/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}
