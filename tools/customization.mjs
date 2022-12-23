@@ -77,21 +77,13 @@ function renameKebabCases(libraryName) {
     const replaceOptions = {
         ignore: 'node_modules/**/*',
         files: '**/*.{ts,html,json,scss,js}',
-        from: new RegExp(LIBRARY_NAME),
-        to: kebabcase(libraryName)
-    }
-
-    const replaceTopLevelConfigOptions = {
-        ignore: 'node_modules/**/*',
-        files: '*.{ts,html,json,scss,js}',
-        from: new RegExp(LIBRARY_NAME),
+        from: new RegExp(LIBRARY_NAME, 'g'),
         to: kebabcase(libraryName)
     }
 
     try {
         spinner.start();
         replaceInFile.sync(replaceOptions);
-        replaceInFile.sync(replaceTopLevelConfigOptions);
         spinner.stop();
     } catch (error) {
         spinner.fail('Oh no, an error occurred while replacing configs, import paths, selectors, HTML component usage')
@@ -105,13 +97,13 @@ function renameCamelCases(libraryName) {
     const replaceOptions = {
         ignore: 'node_modules/**/*',
         files: '**/*.{ts,html,json,scss,js}',
-        from: new RegExp(camelcase(LIBRARY_NAME)),
+        from: new RegExp(camelcase(LIBRARY_NAME), 'g'),
         to: camelcase(libraryName)
     }
 
     try {
         spinner.start();
-        replaceInFile.sync(replaceOptions);
+        // replaceInFile.sync(replaceOptions);
         spinner.stop();
     } catch (error) {
         spinner.fail('Oh no, an error occurred while replacing class names, configs, styles')
