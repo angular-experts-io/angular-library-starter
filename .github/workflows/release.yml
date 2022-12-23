@@ -1,0 +1,34 @@
+name: release
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Node & NPM
+        uses: actions/setup-node@v3
+      - name: Install node modules
+        run: npm install
+      - name: Lint
+        run: npm run lint
+      - name: Test & Coverage
+        run: npm run coverage:library
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+      - name: Build Library
+        run: npm run build:library
+      - name: Build Showcase
+        run: npm run build:showcase
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          folder: dist/ng-if-responsive-showcase
+      - name: Release
+        uses: cycjimmy/semantic-release-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

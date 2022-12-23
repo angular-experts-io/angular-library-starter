@@ -1,0 +1,25 @@
+{
+  "projectName": "ngIfResponsive",
+  "projectOwner": "kreuzerk",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "kreuzerk",
+      "name": "Kevin Kreuzer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5468954?v=4",
+      "profile": "https://medium.com/@kevinkreuzer",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "linkToUsage": false
+}

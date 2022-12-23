@@ -1,0 +1,24 @@
+name: feature-branch
+on:
+  push:
+    branches:
+      - '*'
+      - '*/*'
+      - '**'
+      - '!main'
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Node & NPM
+        uses: actions/setup-node@v3
+      - name: Install node modules
+        run: npm install
+      - name: Lint
+        run: npm run lint
+      - name: Test & Coverage
+        run: npm run coverage:library
+      - name: Build
+        run: npm run build
