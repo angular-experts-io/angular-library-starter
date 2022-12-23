@@ -101,14 +101,26 @@ function renameCamelCases(libraryName) {
         to: camelcase(libraryName)
     }
 
+    const capsReplaceOptions = {
+        ignore: 'node_modules/**/*',
+        files: '**/*.{ts,html,json,scss,js}',
+        from: new RegExp(capitalize(camelcase(LIBRARY_NAME), 'g')),
+        to: capitalize(camelcase(libraryName))
+    }
+
     try {
         spinner.start();
         replaceInFile.sync(replaceOptions);
+        replaceInFile.sync(capsReplaceOptions);
         spinner.stop();
     } catch (error) {
         spinner.fail('Oh no, an error occurred while replacing class names, configs, styles')
         console.error(error);
     }
+}
+
+function capitalize(value){
+    return value.charAt(0).toUpperCase() + value.substring(1);
 }
 
 function generateSpinner(text) {
