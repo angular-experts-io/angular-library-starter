@@ -1,4 +1,4 @@
-# Angular library starter - WIP
+# Angular library starter
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
