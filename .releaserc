@@ -1,5 +1,5 @@
 {
-  "pkgRoot": "dist/ng-if-responsive",
+  "pkgRoot": "dist/angular-library-starter",
   "branches": ["main"],
   "plugins": [
     "@semantic-release/commit-analyzer",
