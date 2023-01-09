@@ -16,6 +16,7 @@
 - [How to use this starter](#how-to-use-this-starter)
   - [Use the template](#use-the-template)
   - [Customization](#customization)
+- [Showcase deployment](#showcase-deployment)
 - [Use fully automated releases](#use-fully-automated-releases)
 - [Contributors ✨](#contributors-)
 
@@ -70,6 +71,14 @@ Once you cloned the template you can run the fllowing command to customise it.
 ```bash
 npm run customize
 ```
+
+## Showcase deployment
+
+This starter uses a Github action to automatically deploy your showcase to GitHub pages.
+If this doesn't work out of the box you probably have to enable deployments under the settings of your repository.
+
+To enable deployments go to the settings of your repository and navigate to the `Pages` section and choose the `gh-pages` branch as source.
+Note that this branch will be created automatically once you push your code to the repository.
 
 ## Use fully automated releases
 
