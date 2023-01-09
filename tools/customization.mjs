@@ -121,7 +121,7 @@ function renameKebabCases(libraryName) {
 
     const replaceOptions = {
         ignore: 'node_modules/**/*',
-        files: '{**/*.{ts,html,json,scss,js},.releaserc}',
+        files: '{**/*.{ts,html,json,scss,js},.releaserc,.github/workflows/release.yml}',
         from: new RegExp(LIBRARY_NAME, 'g'),
         to: kebabcase(libraryName)
     }
