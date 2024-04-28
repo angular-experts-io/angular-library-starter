@@ -13,6 +13,8 @@
   "rules": {
     "@typescript-eslint/semi": "off",
     "@typescript-eslint/comma-dangle": "off",
+    "@typescript-eslint/no-confusing-void-expression": "off",
+    "@typescript-eslint/consistent-type-imports": "off",
     "@typescript-eslint/readonly": "off",
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/prefer-readonly": "off",
