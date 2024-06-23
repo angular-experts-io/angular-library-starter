@@ -44,12 +44,15 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-library-starter-showcase",
+            "outputPath": {
+              "base": "dist/angular-library-starter-showcase"
+            },
             "index": "projects/angular-library-starter-showcase/src/index.html",
-            "main": "projects/angular-library-starter-showcase/src/main.ts",
-            "polyfills": "projects/angular-library-starter-showcase/src/polyfills.ts",
+            "polyfills": [
+              "projects/angular-library-starter-showcase/src/polyfills.ts"
+            ],
             "tsConfig": "projects/angular-library-starter-showcase/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -59,7 +62,8 @@
             "styles": [
               "projects/angular-library-starter-showcase/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "browser": "projects/angular-library-starter-showcase/src/main.ts"
           },
           "configurations": {
             "production": {
@@ -84,9 +88,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
